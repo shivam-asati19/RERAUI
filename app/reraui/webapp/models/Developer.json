@@ -1,4 +1,50 @@
 {
-
-    
+  "personalInfo": {
+    "fullName": "Ahmed Mohammed Al-Rashid",
+    "mobileNumber": "+971 50 123 4567",
+    "nationality": "United Arab Emirates",
+    "emiratesId": "784-1985-1234567-8",
+    "country": "United Arab Emirates",
+    "city": "Ras Al Khaimah",
+    "poBox": "12345"
+  },
+  "companyDetails": {
+    "companyName": "Al-Rashid Construction LLC",
+    "branchAddress": "Al Nakheel Street, Industrial Area, Ras Al Khaimah",
+    "parcelId": "RAK-2024-P-001234",
+    "masterDeveloper": "RAK Properties",
+    "relationship": "Authorized Partner"
+  },
+  "licenseInfo": {
+    "licenseType": "Construction & Development",
+    "licenseNumber": "RAK-CD-2023-0156",
+    "dateOfIssue": "March 15, 2023",
+    "expiryDate": "June 15, 2025"
+  },
+  "submittedDocuments": [
+    {
+      "documentType": "Passport Copy",
+      "uploadDate": "Jan 15, 2025",
+      "status": "Verified",
+      "statusState": "Success"
+    },
+    {
+      "documentType": "Emirates ID",
+      "uploadDate": "Jan 15, 2025",
+      "status": "Verified",
+      "statusState": "Success"
+    },
+    {
+      "documentType": "Trade License",
+      "uploadDate": "Jan 16, 2025",
+      "status": "Under Review",
+      "statusState": "Warning"
+    },
+    {
+      "documentType": "Proof of Land Ownership",
+      "uploadDate": "Jan 16, 2025",
+      "status": "Verified",
+      "statusState": "Success"
+    }
+  ]
 }

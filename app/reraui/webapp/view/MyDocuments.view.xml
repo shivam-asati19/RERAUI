@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="reraui.controller.MyDocuments"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="myDocumentsPage" title="My Documents" showHeader="false">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Title text="My Documents" level="H2"/>
+                <Text text="Documents list coming soon..."/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

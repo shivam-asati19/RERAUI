@@ -1,0 +1,206 @@
+<mvc:View
+    controllerName="reraui.controller.MyAccount"
+    displayBlock="true"
+    height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    
+    <Page id="myAccountPage" showHeader="false" enableScrolling="true">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                
+                <!-- Welcome Header with Profile Picture -->
+                <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginBottom">
+                    <VBox>
+                        <Label text="Welcome to" class="sapUiTinyMarginBottom"/>
+                        <Title text="My Account, Developer" level="H2"/>
+                    </VBox>
+                    <Avatar
+                        src=""
+                        displaySize="XL"
+                        displayShape="Circle"
+                        press="onAvatarPress"/>
+                </HBox>
+
+                <!-- Two Column Layout for Personal and Company Info -->
+                <l:Grid defaultSpan="XL6 L6 M12 S12" hSpacing="1" class="sapUiMediumMarginTop">
+                    
+                    <!-- Personal Information Panel -->
+                    <Panel headerText="Personal Information" class="sapUiResponsiveMargin">
+                        <content>
+                            <form:SimpleForm
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                emptySpanXL="0"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="1"
+                                columnsL="1"
+                                columnsM="1"
+                                class="sapUiSmallMargin">
+                                <form:content>
+                                    <Label text="Full Name"/>
+                                    <Text text="{developerModel>/personalInfo/fullName}"/>
+                                    
+                                    <Label text="Mobile Number"/>
+                                    <Text text="{developerModel>/personalInfo/mobileNumber}"/>
+                                    
+                                    <Label text="Nationality"/>
+                                    <Text text="{developerModel>/personalInfo/nationality}"/>
+                                    
+                                    <Label text="Emirates ID"/>
+                                    <Text text="{developerModel>/personalInfo/emiratesId}"/>
+                                    
+                                    <Label text="Country"/>
+                                    <Text text="{developerModel>/personalInfo/country}"/>
+                                    
+                                    <Label text="City"/>
+                                    <Text text="{developerModel>/personalInfo/city}"/>
+                                    
+                                    <Label text="P.O. Box"/>
+                                    <Text text="{developerModel>/personalInfo/poBox}"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </content>
+                    </Panel>
+
+                    <!-- Company Details Panel -->
+                    <Panel headerText="Company Details" class="sapUiResponsiveMargin">
+                        <content>
+                            <form:SimpleForm
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="4"
+                                labelSpanS="12"
+                                emptySpanXL="0"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="1"
+                                columnsL="1"
+                                columnsM="1"
+                                class="sapUiSmallMargin">
+                                <form:content>
+                                    <Label text="Company Name"/>
+                                    <Text text="{developerModel>/companyDetails/companyName}"/>
+                                    
+                                    <Label text="Branch Address"/>
+                                    <Text text="{developerModel>/companyDetails/branchAddress}"/>
+                                    
+                                    <Label text="Parcel ID"/>
+                                    <Text text="{developerModel>/companyDetails/parcelId}"/>
+                                    
+                                    <Label text="Master Developer"/>
+                                    <Text text="{developerModel>/companyDetails/masterDeveloper}"/>
+                                    
+                                    <Label text="Relationship"/>
+                                    <Text text="{developerModel>/companyDetails/relationship}"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </content>
+                    </Panel>
+                </l:Grid>
+
+                <!-- License Information Panel -->
+                <Panel headerText="License Information" class="sapUiResponsiveMargin">
+                    <content>
+                        <form:SimpleForm
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            labelSpanXL="2"
+                            labelSpanL="3"
+                            labelSpanM="4"
+                            labelSpanS="12"
+                            emptySpanXL="0"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="2"
+                            columnsM="1"
+                            class="sapUiSmallMargin">
+                            <form:content>
+                                <Label text="License Type"/>
+                                <Text text="{developerModel>/licenseInfo/licenseType}"/>
+                                
+                                <Label text="License Number"/>
+                                <Text text="{developerModel>/licenseInfo/licenseNumber}"/>
+                                
+                                <Label text="Date of Issue"/>
+                                <Text text="{developerModel>/licenseInfo/dateOfIssue}"/>
+                                
+                                <Label text="Expiry Date"/>
+                                <HBox>
+                                    <Text text="{developerModel>/licenseInfo/expiryDate}"/>
+                                    <core:Icon src="sap-icon://alert" color="#D04343" class="sapUiTinyMarginBegin"/>
+                                </HBox>
+                            </form:content>
+                        </form:SimpleForm>
+                    </content>
+                </Panel>
+
+                <!-- Submitted Documents Panel -->
+                <Panel headerText="Submitted Documents" class="sapUiResponsiveMargin">
+                    <content>
+                        <Table
+                            id="documentsTable"
+                            items="{developerModel>/submittedDocuments}"
+                            mode="None"
+                            growing="true"
+                            growingThreshold="10">
+                            <columns>
+                                <Column width="auto">
+                                    <Text text="Document Type"/>
+                                </Column>
+                                <Column width="auto" demandPopin="true" minScreenWidth="Tablet">
+                                    <Text text="Upload Date"/>
+                                </Column>
+                                <Column width="auto" demandPopin="true" minScreenWidth="Desktop">
+                                    <Text text="Status"/>
+                                </Column>
+                                <Column width="auto" hAlign="Center">
+                                    <Text text="Actions"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{developerModel>documentType}"/>
+                                        <Text text="{developerModel>uploadDate}"/>
+                                        <ObjectStatus
+                                            text="{developerModel>status}"
+                                            state="{developerModel>statusState}"/>
+                                        <HBox>
+                                            <Button
+                                                icon="sap-icon://show"
+                                                type="Transparent"
+                                                press="onViewDocument"
+                                                tooltip="View Document"/>
+                                            <Button
+                                                icon="sap-icon://download"
+                                                type="Transparent"
+                                                press="onDownloadDocument"
+                                                tooltip="Download Document"/>
+                                        </HBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </content>
+                </Panel>
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

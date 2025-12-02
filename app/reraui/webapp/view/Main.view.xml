@@ -13,10 +13,7 @@
             <core:Fragment fragmentName="reraui.fragment.AppSideNavigation" type="XML" /> 
         </sideContent>
         <mainContents>
-            <m:VBox height="100%" justifyContent="SpaceBetween">
-                <m:NavContainer id="mainNavContainer" height="100%" />
-                <core:Fragment fragmentName="reraui.fragment.AppFooter" type="XML" />
-            </m:VBox>
+            <m:NavContainer id="mainNavContainer" height="100%" />
         </mainContents>
     </ToolPage>
     

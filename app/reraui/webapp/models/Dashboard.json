@@ -1,0 +1,150 @@
+{
+  "kpis": [
+    {
+      "title": "All Project",
+      "value": "3",
+      "valueColor": "Neutral",
+      "state": "None"
+    },
+    {
+      "title": "Off.plan Units",
+      "value": "4",
+      "valueColor": "Neutral",
+      "state": "None"
+    },
+    {
+      "title": "Escrow Balance",
+      "value": "9",
+      "valueColor": "Neutral",
+      "state": "None"
+    },
+    {
+      "title": "Pending Actions",
+      "value": "10",
+      "valueColor": "Critical",
+      "state": "None"
+    }
+  ],
+  "quickActions": [
+    {
+      "title": "Register New Project",
+      "icon": "sap-icon://add",
+      "iconColor": "#0854A0"
+    },
+    {
+      "title": "Submit Inspection Report",
+      "icon": "sap-icon://document-text",
+      "iconColor": "#D04343"
+    },
+    {
+      "title": "Modify Project/Unit",
+      "icon": "sap-icon://edit",
+      "iconColor": "#E78C07"
+    },
+    {
+      "title": "Cancel Unit Sale",
+      "icon": "sap-icon://decline",
+      "iconColor": "#D04343"
+    },
+    {
+      "title": "Request Title Deed Transfer",
+      "icon": "sap-icon://loan",
+      "iconColor": "#0854A0"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project A",
+      "description": "Proj Description",
+      "idNumber": "1234567890",
+      "registrationDate": "_/_",
+      "progress": 35,
+      "status": "Pending",
+      "statusState": "Warning"
+    },
+    {
+      "name": "Project B",
+      "description": "Proj Description",
+      "idNumber": "1234567890",
+      "registrationDate": "_/_",
+      "progress": 60,
+      "status": "Active",
+      "statusState": "Success"
+    },
+    {
+      "name": "Project C",
+      "description": "Proj Description",
+      "idNumber": "1234567890",
+      "registrationDate": "_/_",
+      "progress": 100,
+      "status": "Completed",
+      "statusState": "Success"
+    }
+  ],
+  "services": [
+    {
+      "service": "Project Registration",
+      "project": "Project A",
+      "status": "In Review",
+      "statusState": "Information",
+      "action": "Submit Additional Docs"
+    },
+    {
+      "service": "Unit Termination Request",
+      "project": "Project A",
+      "status": "Completed",
+      "statusState": "Success",
+      "action": "Dowload Good Certificate"
+    },
+    {
+      "service": "Project Registration",
+      "project": "Project A",
+      "status": "Waiting Approval",
+      "statusState": "Warning",
+      "action": "RERA Review Ongoing"
+    }
+  ],
+  "notifications": [
+    {
+      "project": "Project A",
+      "action": "Add new document",
+      "priority": "Medium"
+    },
+    {
+      "project": "Project B",
+      "action": "Update existing document",
+      "priority": "High"
+    }
+  ],
+  "documents": [
+    {
+      "name": "Account Certificate",
+      "project": "Project A",
+      "icon": "sap-icon://pdf-attachment"
+    },
+    {
+      "name": "Inspection Report",
+      "project": "Project B",
+      "icon": "sap-icon://pdf-attachment"
+    },
+    {
+      "name": "Payment Receipt",
+      "project": "Project C",
+      "icon": "sap-icon://pdf-attachment"
+    }
+  ],
+  "escrowManagement": [
+    {
+      "project": "Project A",
+      "phase": "Phase 3 of 4",
+      "amount": "AED 12.5M",
+      "progress": 75
+    },
+    {
+      "project": "Project B",
+      "phase": "Phase 2 of 4",
+      "amount": "AED 8.2M",
+      "progress": 50
+    }
+  ]
+}

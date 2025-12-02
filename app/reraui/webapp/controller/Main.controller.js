@@ -17,6 +17,14 @@ sap.ui.define([
             if (this._model.getProperty("/sideNavigationExpanded") === undefined) {
                 this._model.setProperty("/sideNavigationExpanded", true);
             }
+
+            // Initialize router after view is rendered
+            var oRouter = this.getRouter();
+            oRouter.attachRouteMatched(this.onRouteMatched, this);
+        },
+
+        onRouteMatched: function(oEvent) {
+            // Handle route matched if needed
         },
 
         toggleSideNavigation: function () {
@@ -34,15 +42,21 @@ sap.ui.define([
 
         onNavigationItemSelect: function(oEvent) {
             var oItem = oEvent.getParameter("item");
-            var oItemData = oItem.getBindingContext().getObject();
+            var sKey = oItem.getKey();
             
-            if (oItemData && oItemData.route) {
-                this.getRouter().navTo(oItemData.route);
+            // Get navigation items to find route
+            var aNavItems = this._model.getProperty("/navigationItems");
+            var oNavItem = aNavItems.find(function(item) {
+                return item.key === sKey;
+            });
+            
+            if (oNavItem && oNavItem.route) {
+                this.getRouter().navTo(oNavItem.route);
             }
         },
 
-        navToHome: function () {
-            this.getRouter().navTo("Home");
+        onGovernmentServicesPress: function() {
+            sap.m.MessageToast.show("Government Services - Coming Soon");
         }
     });
 });

@@ -1,0 +1,272 @@
+<mvc:View
+    controllerName="reraui.controller.Dashboard"
+    displayBlock="true"
+    height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core">
+    
+    <Page id="dashboardPage" showHeader="false" enableScrolling="true">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                
+                <!-- Welcome Header -->
+                <VBox class="sapUiSmallMarginBottom">
+                    <Label text="Welcome To" class="sapUiTinyMarginBottom"/>
+                    <Title text="My Dashboard" level="H2" class="sapUiTinyMarginBottom"/>
+                    <Text text="Access and manage all your projects, services, and documents in one place"/>
+                </VBox>
+
+                <!-- KPI Tiles -->
+                <l:Grid defaultSpan="XL3 L3 M6 S12" hSpacing="1" vSpacing="1" class="sapUiSmallMarginTop">
+                    <l:content>
+                        <GenericTile
+                            header="{dashboardModel>/kpis/0/title}"
+                            frameType="OneByOne"
+                            press="onKPIPress">
+                            <TileContent>
+                                <NumericContent
+                                    value="{dashboardModel>/kpis/0/value}"
+                                    valueColor="{dashboardModel>/kpis/0/valueColor}"
+                                    indicator="{dashboardModel>/kpis/0/state}"/>
+                            </TileContent>
+                        </GenericTile>
+
+                        <GenericTile
+                            header="{dashboardModel>/kpis/1/title}"
+                            frameType="OneByOne"
+                            press="onKPIPress">
+                            <TileContent>
+                                <NumericContent
+                                    value="{dashboardModel>/kpis/1/value}"
+                                    valueColor="{dashboardModel>/kpis/1/valueColor}"/>
+                            </TileContent>
+                        </GenericTile>
+
+                        <GenericTile
+                            header="{dashboardModel>/kpis/2/title}"
+                            frameType="OneByOne"
+                            press="onKPIPress">
+                            <TileContent>
+                                <NumericContent
+                                    value="{dashboardModel>/kpis/2/value}"
+                                    valueColor="{dashboardModel>/kpis/2/valueColor}"/>
+                            </TileContent>
+                        </GenericTile>
+
+                        <GenericTile
+                            header="{dashboardModel>/kpis/3/title}"
+                            frameType="OneByOne"
+                            press="onKPIPress">
+                            <TileContent>
+                                <NumericContent
+                                    value="{dashboardModel>/kpis/3/value}"
+                                    valueColor="{dashboardModel>/kpis/3/valueColor}"/>
+                            </TileContent>
+                        </GenericTile>
+                    </l:content>
+                </l:Grid>
+
+                <!-- Two Column Layout -->
+                <l:Grid defaultSpan="XL6 L6 M12 S12" hSpacing="1" class="sapUiMediumMarginTop">
+                    
+                    <!-- Left Column -->
+                    <VBox>
+                        <!-- Quick Actions Panel -->
+                        <Panel headerText="Quick Actions" class="sapUiResponsiveMargin">
+                            <content>
+                                <VBox>
+                                    <List items="{dashboardModel>/quickActions}" mode="None">
+                                        <StandardListItem
+                                            title="{dashboardModel>title}"
+                                            icon="{dashboardModel>icon}"
+                                            type="Navigation"
+                                            press="onQuickActionPress"/>
+                                    </List>
+                                </VBox>
+                            </content>
+                        </Panel>
+
+                        <!-- My Services Panel -->
+                        <Panel class="sapUiResponsiveMargin">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="My Services"/>
+                                    <ToolbarSpacer/>
+                                    <Link text="View All" press="onViewAllServices"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <content>
+                                <Table
+                                    items="{dashboardModel>/services}"
+                                    mode="None"
+                                    growing="true"
+                                    growingThreshold="10">
+                                    <columns>
+                                        <Column width="auto">
+                                            <Text text="Service"/>
+                                        </Column>
+                                        <Column width="auto" demandPopin="true" minScreenWidth="Tablet">
+                                            <Text text="Project"/>
+                                        </Column>
+                                        <Column width="auto" demandPopin="true" minScreenWidth="Desktop">
+                                            <Text text="Status"/>
+                                        </Column>
+                                        <Column width="auto">
+                                            <Text text="Action Required"/>
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <Text text="{dashboardModel>service}"/>
+                                                <Text text="{dashboardModel>project}"/>
+                                                <ObjectStatus
+                                                    text="{dashboardModel>status}"
+                                                    state="{dashboardModel>statusState}"/>
+                                                <Text text="{dashboardModel>action}"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </content>
+                        </Panel>
+
+                        <!-- Documents Panel -->
+                        <Panel class="sapUiResponsiveMargin">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="Documents"/>
+                                    <ToolbarSpacer/>
+                                    <Link text="View All" press="onViewAllDocuments"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <content>
+                                <List items="{dashboardModel>/documents}">
+                                    <StandardListItem
+                                        title="{dashboardModel>name}"
+                                        description="{dashboardModel>project}"
+                                        icon="{dashboardModel>icon}"
+                                        type="Active"
+                                        press="onDocumentPress">
+                                        <customData>
+                                            <core:CustomData key="action" value="download"/>
+                                        </customData>
+                                    </StandardListItem>
+                                </List>
+                            </content>
+                        </Panel>
+                    </VBox>
+
+                    <!-- Right Column -->
+                    <VBox>
+                        <!-- Project Portfolio Panel -->
+                        <Panel class="sapUiResponsiveMargin">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="Project Portfolio"/>
+                                    <ToolbarSpacer/>
+                                    <Link text="View All" press="onViewAllProjects"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <content>
+                                <VBox class="sapUiSmallMargin">
+                                    <Text text="These are your tasks for the day" class="sapUiTinyMarginBottom"/>
+                                    
+                                    <List items="{dashboardModel>/projects}" mode="None">
+                                        <CustomListItem>
+                                            <VBox width="100%">
+                                                <HBox justifyContent="SpaceBetween" width="100%" class="sapUiTinyMarginBottom">
+                                                    <VBox width="40%">
+                                                        <Title text="{dashboardModel>name}" level="H5"/>
+                                                        <Text text="{dashboardModel>description}"/>
+                                                    </VBox>
+                                                    <VBox width="20%">
+                                                        <Label text="ID Number"/>
+                                                        <Text text="{dashboardModel>idNumber}"/>
+                                                    </VBox>
+                                                    <VBox width="20%">
+                                                        <Label text="Registration Date"/>
+                                                        <Text text="{dashboardModel>registrationDate}"/>
+                                                    </VBox>
+                
+                                                </HBox>
+                                            </VBox>
+                                        </CustomListItem>
+                                    </List>
+
+                                    <!-- Legend -->
+                                    <HBox class="sapUiSmallMarginTop">
+                                        <HBox class="sapUiTinyMarginEnd">
+                                            <core:Icon src="sap-icon://circle-task-2" color="#2B7C2B" class="sapUiTinyMarginEnd"/>
+                                            <Text text="Completed"/>
+                                        </HBox>
+                                        <HBox class="sapUiTinyMarginEnd sapUiTinyMarginBegin">
+                                            <core:Icon src="sap-icon://circle-task-2" color="#E78C07" class="sapUiTinyMarginEnd"/>
+                                            <Text text="Pending"/>
+                                        </HBox>
+                                        <HBox class="sapUiTinyMarginBegin">
+                                            <core:Icon src="sap-icon://circle-task-2" color="#0854A0" class="sapUiTinyMarginEnd"/>
+                                            <Text text="Active"/>
+                                        </HBox>
+                                        <HBox class="sapUiTinyMarginBegin">
+                                            <core:Icon src="sap-icon://circle-task-2" color="#D04343" class="sapUiTinyMarginEnd"/>
+                                            <Text text="Canceled"/>
+                                        </HBox>
+                                    </HBox>
+                                </VBox>
+                            </content>
+                        </Panel>
+
+                        <!-- Notifications Panel -->
+                        <Panel class="sapUiResponsiveMargin">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="Notifications &amp; Alerts"/>
+                                    <ToolbarSpacer/>
+                                    <Link text="View All" press="onViewAllNotifications"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <content>
+                                <List items="{dashboardModel>/notifications}">
+                                    <NotificationListItem
+                                        title="{dashboardModel>project}"
+                                        description="{dashboardModel>action}"
+                                        priority="{dashboardModel>priority}"
+                                        showCloseButton="false"/>
+                                </List>
+                            </content>
+                        </Panel>
+
+                        <!-- Escrow Management Panel -->
+                        <Panel headerText="Escrow Management" class="sapUiResponsiveMargin">
+                            <content>
+                                <List items="{dashboardModel>/escrowManagement}">
+                                    <CustomListItem>
+                                        <VBox width="100%" class="sapUiSmallMargin">
+                                            <HBox justifyContent="SpaceBetween" width="100%">
+                                                <Title text="{dashboardModel>project}" level="H5"/>
+                                                <Text text="{dashboardModel>amount}"/>
+                                            </HBox>
+                                            <HBox justifyContent="SpaceBetween" width="100%" class="sapUiTinyMarginTop">
+                                                <Text text="{dashboardModel>phase}"/>
+                                                <Text text="{dashboardModel>progress}% Complete"/>
+                                            </HBox>
+                                            <ProgressIndicator
+                                                percentValue="{dashboardModel>progress}"
+                                                state="Success"
+                                                class="sapUiTinyMarginTop"/>
+                                        </VBox>
+                                    </CustomListItem>
+                                </List>
+                            </content>
+                        </Panel>
+                    </VBox>
+                </l:Grid>
+
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

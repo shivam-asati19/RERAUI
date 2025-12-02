@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="reraui.controller.ContactUs"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="contactUsPage" title="Contact Us" showHeader="false">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Title text="Contact Us" level="H2"/>
+                <Text text="Contact information coming soon..."/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

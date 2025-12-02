@@ -27,6 +27,10 @@
       "project": {
         "uri": "models/Project.json",
         "type": "JSON"
+      },
+      "dashboard": {
+        "uri": "models/Dashboard.json",
+        "type": "JSON"
       }
     }
   },
@@ -55,7 +59,8 @@
         "sap.ui.core": {},
         "sap.tnt": {},
         "sap.f": {},
-        "sap.uxap": {}
+        "sap.uxap": {},
+        "sap.ui.layout": {}
       }
     },
     "contentDensities": {
@@ -79,6 +84,11 @@
         "preload": true,
         "settings": {}
       },
+      "dashboardModel": {
+        "dataSource": "dashboard",
+        "preload": true,
+        "settings": {}
+      },
       "": {
         "dataSource": "main",
         "preload": true,
@@ -92,8 +102,8 @@
         }
       ]
     },
-    "routing": {
-      "config": {
+   "routing": {
+    "config": {
         "routerClass": "sap.m.routing.Router",
         "controlAggregation": "pages",
         "controlId": "mainNavContainer",
@@ -102,31 +112,97 @@
         "viewType": "XML",
         "path": "reraui.view",
         "async": true
-      },
-      "routes": [
-        {
-          "name": "Home",
-          "pattern": ":?query:",
-          "target": ["TargetMain", "TargetHome"]
-        }
-      ],
-      "targets": {
-        "TargetMain": {
-          "viewType": "XML",
-          "viewId": "Main",
-          "viewName": "Main",
-          "controlId": "app",
-          "controlAggregation": "pages"
-        },
-        "TargetHome": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": true,
-          "viewId": "Home",
-          "viewName": "Home"
-        }
-      }
     },
+    "routes": [
+        {
+            "name": "Dashboard",
+            "pattern": "",
+            "target": ["TargetMain", "TargetDashboard"]
+        },
+        {
+            "name": "MyAccount",
+            "pattern": "myaccount",
+            "target": ["TargetMain", "TargetMyAccount"]
+        },
+        {
+            "name": "MyProjects",
+            "pattern": "myprojects",
+            "target": ["TargetMain", "TargetMyProjects"]
+        },
+        {
+            "name": "MyDocuments",
+            "pattern": "mydocuments",
+            "target": ["TargetMain", "TargetMyDocuments"]
+        },
+        {
+            "name": "Inbox",
+            "pattern": "inbox",
+            "target": ["TargetMain", "TargetInbox"]
+        },
+        {
+            "name": "ContactUs",
+            "pattern": "contactus",
+            "target": ["TargetMain", "TargetContactUs"]
+        }
+    ],
+    "targets": {
+        "TargetMain": {
+            "viewType": "XML",
+            "viewId": "Main",
+            "viewName": "Main",
+            "controlId": "app",
+            "controlAggregation": "pages"
+        },
+        "TargetDashboard": {
+            "viewType": "XML",
+            "viewId": "Dashboard",
+            "viewName": "Dashboard",
+            "controlId": "mainNavContainer",
+            "controlAggregation": "pages",
+            "parent": "TargetMain"
+        },
+        "TargetMyAccount": {
+            "viewType": "XML",
+            "viewId": "MyAccount",
+            "viewName": "MyAccount",
+            "controlId": "mainNavContainer",
+            "controlAggregation": "pages",
+            "parent": "TargetMain"
+        },
+        "TargetMyProjects": {
+            "viewType": "XML",
+            "viewId": "MyProjects",
+            "viewName": "MyProjects",
+            "controlId": "mainNavContainer",
+            "controlAggregation": "pages",
+            "parent": "TargetMain"
+        },
+        "TargetMyDocuments": {
+            "viewType": "XML",
+            "viewId": "MyDocuments",
+            "viewName": "MyDocuments",
+            "controlId": "mainNavContainer",
+            "controlAggregation": "pages",
+            "parent": "TargetMain"
+        },
+        "TargetInbox": {
+            "viewType": "XML",
+            "viewId": "Inbox",
+            "viewName": "Inbox",
+            "controlId": "mainNavContainer",
+            "controlAggregation": "pages",
+            "parent": "TargetMain"
+        },
+        "TargetContactUs": {
+            "viewType": "XML",
+            "viewId": "ContactUs",
+            "viewName": "ContactUs",
+            "controlId": "mainNavContainer",
+            "controlAggregation": "pages",
+            "parent": "TargetMain"
+        }
+    }
+},
     "rootView": {
       "viewName": "reraui.view.App",
       "type": "XML",

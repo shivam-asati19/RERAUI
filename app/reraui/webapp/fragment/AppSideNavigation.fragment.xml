@@ -17,9 +17,9 @@
         <fixedItem>
             <NavigationList id="fixedNavigationList">
                 <NavigationListItem
-                    text="Settings"
-                    icon="sap-icon://action-settings"
-                    key="settings" />
+                    text="Government Services"
+                    icon="sap-icon://official-service"
+                    key="govServices" />
             </NavigationList>
         </fixedItem>
     </SideNavigation>

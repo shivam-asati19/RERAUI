@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="reraui.controller.Inbox"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="inboxPage" title="Inbox" showHeader="false">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Title text="Inbox" level="H2"/>
+                <Text text="Messages coming soon..."/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
