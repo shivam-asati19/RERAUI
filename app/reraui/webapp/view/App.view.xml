@@ -1,0 +1,10 @@
+<mvc:View controllerName="reraui.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns="sap.tnt">
+    
+    <m:App id="app" />
+    
+</mvc:View>

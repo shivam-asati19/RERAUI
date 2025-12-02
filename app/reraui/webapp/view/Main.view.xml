@@ -1,0 +1,23 @@
+<mvc:View controllerName="reraui.controller.Main"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns="sap.tnt">
+    
+    <ToolPage id="toolPage" sideExpanded="{/sideNavigationExpanded}" class="sapUiSizeCompact">
+        <header>
+            <core:Fragment fragmentName="reraui.fragment.AppHeader" type="XML" />
+        </header>
+        <sideContent>
+            <core:Fragment fragmentName="reraui.fragment.AppSideNavigation" type="XML" /> 
+        </sideContent>
+        <mainContents>
+            <m:VBox height="100%" justifyContent="SpaceBetween">
+                <m:NavContainer id="mainNavContainer" height="100%" />
+                <core:Fragment fragmentName="reraui.fragment.AppFooter" type="XML" />
+            </m:VBox>
+        </mainContents>
+    </ToolPage>
+    
+</mvc:View>

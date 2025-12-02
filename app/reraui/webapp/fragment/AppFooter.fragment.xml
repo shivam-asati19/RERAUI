@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    
+    <OverflowToolbar id="appFooter" design="Info">
+        <ToolbarSpacer />
+        <Text 
+            id="copyrightText" 
+            text="© 2025 RERA RAK. All rights reserved." 
+            class="sapUiTinyMarginEnd" />
+        <ToolbarSpacer />
+        <Label 
+            id="versionLabel" 
+            text="Version 1.0.0" 
+            class="sapUiTinyMarginEnd" />
+        <ToolbarSeparator />
+        <Link 
+            id="privacyLink" 
+            text="Privacy Policy" 
+            class="sapUiTinyMarginBeginEnd" />
+        <Link 
+            id="termsLink" 
+            text="Terms of Service" 
+            class="sapUiTinyMarginEnd" />
+    </OverflowToolbar>
+    
+</core:FragmentDefinition>

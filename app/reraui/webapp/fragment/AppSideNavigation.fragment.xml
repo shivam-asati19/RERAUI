@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+    xmlns="sap.tnt"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core">
+    
+    <SideNavigation id="sideNavigation" expanded="{/sideNavigationExpanded}">
+        <NavigationList id="navigationList" 
+            items="{/navigationItems}"
+            itemSelect="onNavigationItemSelect">
+            <NavigationListItem
+                text="{text}"
+                icon="{icon}"
+                key="{key}"
+                enabled="true" />
+        </NavigationList>
+        
+        <fixedItem>
+            <NavigationList id="fixedNavigationList">
+                <NavigationListItem
+                    text="Settings"
+                    icon="sap-icon://action-settings"
+                    key="settings" />
+            </NavigationList>
+        </fixedItem>
+    </SideNavigation>
+    
+</core:FragmentDefinition>

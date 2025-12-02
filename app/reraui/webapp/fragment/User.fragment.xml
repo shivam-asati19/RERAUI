@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Popover 
+        id="userPopover"
+        placement="Bottom" 
+        showHeader="false">
+        <VBox class="sapUiResponsivePadding--header sapUiResponsivePadding--footer sapUiMediumMargin" alignItems="Center">
+            <Avatar
+                displaySize="L"
+                initials="{=${/userDetails/displayName}.substr(0,2)}"
+                backgroundColor="Accent5"
+                displayShape="Square"/>
+            <Title 
+                text="{/userDetails/displayName}"  
+                class="sapUiTinyMarginTop"/>
+
+            <ToggleButton 
+                text="Toggle Theme" 
+                icon="sap-icon://lightbulb" 
+                type="Transparent" 
+                pressed="{/isDarkTheme}"
+                press="onThemeToggle"/>
+
+            <Button 
+                icon="sap-icon://bell" 
+                text="Notifications" 
+                type="Transparent"
+                press="onNotificationsPress"/>
+
+            <Button 
+                text="Logout" 
+                class="sapUiSmallMarginTop" 
+                type="Reject" 
+                icon="sap-icon://log" 
+                press="onLogoutPress"/>
+        </VBox>
+    </Popover>
+</core:FragmentDefinition>

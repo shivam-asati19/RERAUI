@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+    xmlns="sap.tnt"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core">
+    
+    <ToolHeader id="shellHeader">
+        <m:Button 
+            id="sideNavigationToggleButton" 
+            icon="sap-icon://menu2" 
+            type="Transparent"
+            press="toggleSideNavigation"
+            tooltip="Toggle Side Navigation" />
+        <m:ToolbarSpacer id="toolbarSpacer" />
+        <m:Title id="shellHeaderTitle" text="RERA RAK Application" level="H4" />
+        <m:ToolbarSpacer />
+        <m:Button 
+            id="userButton" 
+            icon="sap-icon://account" 
+            type="Transparent"
+            tooltip="User Profile" />
+    </ToolHeader>
+    
+</core:FragmentDefinition>

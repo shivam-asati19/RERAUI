@@ -1,0 +1,41 @@
+{
+    "navigationItems": [
+        {
+            "key": "home",
+            "text": "My Dashboard",
+            "icon": "sap-icon://home",
+            "route": "Home"
+        },
+        {
+            "key": "My Account",
+            "text": "My Account",
+            "icon": "sap-icon://building",
+            "route": "Home"
+        },
+        {
+            "key": "My Projects",
+            "text": "My Projects",
+            "icon": "sap-icon://group",
+            "route": "Home" 
+        },
+          {
+            "key": "My Documents",
+            "text": "My Documents",
+            "icon": "sap-icon://group",
+            "route": "Home"
+        },
+         {
+            "key": "Inbox",
+            "text": "Inbox",
+            "icon": "sap-icon://group",
+            "route": "Home"
+        },
+          {
+            "key": "Contact Us",
+            "text": "Contact Us",
+            "icon": "sap-icon://group",
+            "route": "Home"
+        }
+    ],
+    "sideNavigationExpanded": true
+}
